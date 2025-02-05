@@ -5,21 +5,14 @@ import SearchForm from './components/SearchForm/SearchForm';
 import dayjs from 'dayjs';
 
 function App() {
-  const [originAirport, setOriginAirport] = useState(null);
-  const [destinationAirport, setDestinationAirport] = useState(null);
   const [flightDate, setFlightDate] = useState(dayjs());
 
-  const handleOriginAirportChange = (newOriginAirport) => {
-    setOriginAirport(newOriginAirport);
-  }
-  const handleDestinationAirportChange = (newDestinationAirport) => {
-    setDestinationAirport(newDestinationAirport);
-  }
   const handleFlightDateChange = (newFlightDate) => {
     setFlightDate(newFlightDate);
   }
   const handleSearch = useCallback(() => {
-    // TODO handle search
+    // TODO: Highlight the first incomplete field in RTL order - prompting user to provide an input
+    // TODO: fetch flights from api and provide them to flight results
   }, []);
 
   return (
@@ -37,12 +30,6 @@ function App() {
         }}
       >
         <SearchForm 
-          originAirport={originAirport}
-          onOriginAirportChange={handleOriginAirportChange}
-          
-          destinationAirport={destinationAirport}
-          onDestinationAirportChange={handleDestinationAirportChange}
-
           flightDate={flightDate}
           onFlightDateChange={handleFlightDateChange}
 
