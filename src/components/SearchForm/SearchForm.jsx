@@ -1,22 +1,14 @@
 import { Paper, Grid2 as Grid, Button, Typography, Box, IconButton } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import SearchIcon from '@mui/icons-material/Search';
-import AirportInput from '../AirportInput/AirportInput';
+import OriginAirportInput from '../OriginAirportInput/OriginAirportInput';
+import DestinationAirportInput from '../DestinationAirportInput/DestinationAirportInput';
+import JourneyDatePicker from '../JourneyDatePicker/JourneyDatePicker';
 import { SwapHorizontalCircle } from '@mui/icons-material';
 import TripTypeSelector from '../TripTypeSelector/TripTypeSelector';
 import PassengerMenu from '../PassengerMenu/PassengerMenu';
 import CabinClassMenu from '../CabinClassMenu/CabinClassMenu';
-import dayjs from 'dayjs';
 
-function SearchForm({
-  originAirport,
-  onOriginAirportChange,
-  destinationAirport,
-  onDestinationAirportChange,
-  flightDate,
-  onFlightDateChange,
-}) {
-
+function SearchForm() {
   return (
     <Paper
       sx={{
@@ -48,12 +40,7 @@ function SearchForm({
           {/* origin-destination airport input */}
           <Grid size={8} container spacing={0}>
             <Grid size={5.5}>
-              <AirportInput
-                label={'Where from?'}
-                sx={{ width: '100%' }}
-                selectedAirport={originAirport}
-                onAirportChange={onOriginAirportChange}
-              />
+              <OriginAirportInput sx={{ width: '100%' }} />
             </Grid>
 
             <Grid
@@ -68,26 +55,14 @@ function SearchForm({
             </Grid>
 
             <Grid size={5.5}>
-              <AirportInput
-                label={'Where to?'}
-                sx={{ width: '100%' }}
-                selectedAirport={destinationAirport}
-                onAirportChange={onDestinationAirportChange}
-              />
+            <DestinationAirportInput sx={{ width: '100%' }} />
             </Grid>
           </Grid>
 
           {/* flight date input */}
           <Grid size={4} container>
             <Grid size={12}>
-              <DatePicker
-                sx={{ width: '100%' }}
-                label='Select Date'
-                value={flightDate}
-                onChange={onFlightDateChange}
-                minDate={dayjs()}
-              // renderInput={(params) => <TextField {...params} fullWidth />}
-              />
+              <JourneyDatePicker sx={{ width: '100%' }} />
             </Grid>
           </Grid>
 
@@ -106,7 +81,7 @@ function SearchForm({
             variant='contained'
             startIcon={<SearchIcon />}
             sx={{ borderRadius: 8, padding: '8px 16px' }}
-          disabled={!originAirport || !destinationAirport || !flightDate}
+            // TODO: Only enable when all of the required fields are populated
           >
             <Typography variant='button' sx={{ fontWeight: 'medium' }}>
               Search
