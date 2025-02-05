@@ -11,22 +11,13 @@ import {
 } from '@mui/material';
 import { Add, Remove, ArrowDropDown, ArrowDropUp, Person } from '@mui/icons-material';
 import PASSENGER_TYPES from '../../constants/constants.passengerTypes'
+import useStore from '../../store';
 
-// TODO :: implement these controller props
-// TODO :: Maybe rename of PassengersSelectionMenu
-// const PassengerMenu = ({passengersCount, onPassengerCountChange}) => {
 const PassengerMenu = () => {
   // State for managing the dropdown menu
   const [anchorEl, setAnchorEl] = useState(null);
-
-  // State for passenger counts
-  const [passengersCount, setPassengersCount] = useState(
-    Object.entries(PASSENGER_TYPES)
-      .reduce((acc, [passengerType, config]) => {
-        acc[passengerType] = config.defaultCount;
-        return acc;
-      }, {})
-  );
+  const passengersCount = useStore((state) => state.passengersCount);
+  const setPassengersCount = useStore((state) => state.setPassengersCount);
 
   // Calculate total passengers
   const totalPassengers = Object.values(passengersCount).reduce((acc, count) => acc + count);
@@ -39,22 +30,6 @@ const PassengerMenu = () => {
   // Handle menu close
   const handleMenuClose = () => {
     setAnchorEl(null);
-  };
-
-  // Handle increment/decrement for a specific category
-  const handleCountChange = (passengerType, delta) => {
-    setPassengersCount((prevCounts) => {
-      const newCount = prevCounts[passengerType] + delta;
-
-      if (newCount < PASSENGER_TYPES[passengerType].defaultCount) {
-        return prevCounts;
-      } else {
-        return {
-          ...prevCounts,
-          [passengerType]: newCount  
-        };
-      }
-    });
   };
 
   return (
@@ -105,7 +80,7 @@ const PassengerMenu = () => {
                   {/* Decrease passenger count button */}
                   <Grid size={4}>
                     <IconButton
-                      onClick={() => handleCountChange(passengerType, -1)}
+                      onClick={() => setPassengersCount(passengerType, -1)}
                       disabled={passengersCount[passengerType] === config.defaultCount}
                     >
                       <Remove />
@@ -123,7 +98,7 @@ const PassengerMenu = () => {
 
                   {/* Increase passenger count button */}
                   <Grid size={4}>
-                    <IconButton onClick={() => handleCountChange(passengerType, 1)}>
+                    <IconButton onClick={() => setPassengersCount(passengerType, 1)}>
                       <Add />
                     </IconButton>
                   </Grid>
