@@ -87,12 +87,7 @@ const PassengerMenu = () => {
                 spacing={1}
               >
                 {/* labels */}
-                <Grid
-                  sx={{
-                    // border: "1px solid blue"
-                  }}
-                  size={6}
-                >
+                <Grid size={6}>
                   <ListItemText
                     primary={config.primaryText}
                     secondary={config.secondaryText}
@@ -102,21 +97,13 @@ const PassengerMenu = () => {
                 {/* buttons */}
                 <Grid
                   size={6}
-                  sx={{
-                    // border: "1px solid green",
-                  }}
                   container
                   alignItems={'center'}
                   spacing={1}
                 >
 
                   {/* Decrease passenger count button */}
-                  <Grid
-                    size={4}
-                    sx={{
-                      // border: "1px solid red"
-                    }}
-                  >
+                  <Grid size={4}>
                     <IconButton
                       onClick={() => handleCountChange(passengerType, -1)}
                       disabled={passengersCount[passengerType] === config.defaultCount}
@@ -128,9 +115,6 @@ const PassengerMenu = () => {
                   {/* Passenger count */}
                   <Grid
                     size={4}
-                    sx={{
-                      // border: "1px solid red"
-                    }}
                     container
                     justifyContent={'center'}
                   >
@@ -138,12 +122,7 @@ const PassengerMenu = () => {
                   </Grid>
 
                   {/* Increase passenger count button */}
-                  <Grid
-                    size={4}
-                    sx={{
-                      // border: "1px solid red"
-                    }}
-                  >
+                  <Grid size={4}>
                     <IconButton onClick={() => handleCountChange(passengerType, 1)}>
                       <Add />
                     </IconButton>
