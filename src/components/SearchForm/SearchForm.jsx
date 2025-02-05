@@ -46,16 +46,8 @@ function SearchForm({
         >
 
           {/* origin-destination airport input */}
-          <Grid size={8} container spacing={0}
-            sx={{
-              // border: "1px solid red"
-            }}
-          >
-            <Grid size={5.5}
-              sx={{
-                // border: "1px solid red"
-              }}
-            >
+          <Grid size={8} container spacing={0}>
+            <Grid size={5.5}>
               <AirportInput
                 label={'Where from?'}
                 sx={{ width: '100%' }}
@@ -65,9 +57,6 @@ function SearchForm({
             </Grid>
 
             <Grid
-              sx={{
-                // border: "1px solid red"
-              }}
               size={1}
               container
               justifyContent={'center'}
