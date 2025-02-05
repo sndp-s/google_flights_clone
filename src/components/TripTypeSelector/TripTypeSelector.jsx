@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Box, Button, Menu, MenuItem } from '@mui/material';
 import TRIP_TYPE from '../../constants/constants.tripTypes';
+import useStore from '../../store';
 
 const TripTypeSelector = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedTripType, setSelectedTripType] = useState(Object.entries(TRIP_TYPE)[0][0])
+  const selectedTripType = useStore((state) => state.tripType);
+  const setSelectedTripType = useStore((state) => state.setTripType);
 
   // event handlers
   const handleMenuOpen = (event) => {

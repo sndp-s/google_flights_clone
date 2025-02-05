@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import dayjs from 'dayjs';
+import TRIP_TYPE from './constants/constants.tripTypes';
 
 const useStore = create((set) => ({
   originAirport: null,
@@ -10,6 +11,9 @@ const useStore = create((set) => ({
 
   journeyDate: dayjs(),
   setJourneyDate: (journeyDate) => set({ journeyDate }),
+
+  tripType: Object.entries(TRIP_TYPE)[0][0],
+  setTripType: (tripType) => set({ tripType }),
 }));
 
 export default useStore;
