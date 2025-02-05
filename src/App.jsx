@@ -1,15 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { Container } from '@mui/material';
 import Header from './components/Header/Header';
 import SearchForm from './components/SearchForm/SearchForm';
-import dayjs from 'dayjs';
 
 function App() {
-  const [flightDate, setFlightDate] = useState(dayjs());
-
-  const handleFlightDateChange = (newFlightDate) => {
-    setFlightDate(newFlightDate);
-  }
   const handleSearch = useCallback(() => {
     // TODO: Highlight the first incomplete field in RTL order - prompting user to provide an input
     // TODO: fetch flights from api and provide them to flight results
@@ -29,12 +23,7 @@ function App() {
           }
         }}
       >
-        <SearchForm 
-          flightDate={flightDate}
-          onFlightDateChange={handleFlightDateChange}
-
-          onSearch={handleSearch}
-        />
+        <SearchForm  onSearch={handleSearch}/>
 
         {/* TODO: FlightResults */}
       </Container>
