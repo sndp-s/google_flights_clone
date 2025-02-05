@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Box, Button, Menu, MenuItem } from '@mui/material';
 import CABIN_CLASS_TYPES from '../../constants/constants.cabinClassTypes';
+import useStore from '../../store';
 
 const CabinClassMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedCabinClass, setSelectedCabinClass] = useState(Object.entries(CABIN_CLASS_TYPES)[0][0])
+  const selectedCabinClass = useStore((state) => state.cabinClass);
+  const setSelectedCabinClass = useStore((state) => state.setSelectedCabinClass);
 
   // event handlers
   const handleMenuOpen = (event) => {
