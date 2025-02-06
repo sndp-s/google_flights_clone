@@ -6,7 +6,7 @@ import useStore from '../../store';
 const CabinClassMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const selectedCabinClass = useStore((state) => state.cabinClass);
-  const setSelectedCabinClass = useStore((state) => state.setSelectedCabinClass);
+  const setSelectedCabinClass = useStore((state) => state.setCabinClass);
 
   // event handlers
   const handleMenuOpen = (event) => {
