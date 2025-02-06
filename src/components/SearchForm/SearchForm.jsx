@@ -1,5 +1,4 @@
-import { Paper, Grid2 as Grid, Button, Typography, Box, IconButton } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { Paper, Grid2 as Grid, Box, IconButton } from '@mui/material';
 import OriginAirportInput from '../OriginAirportInput/OriginAirportInput';
 import DestinationAirportInput from '../DestinationAirportInput/DestinationAirportInput';
 import JourneyDatePicker from '../JourneyDatePicker/JourneyDatePicker';
@@ -7,6 +6,7 @@ import { SwapHorizontalCircle } from '@mui/icons-material';
 import TripTypeSelector from '../TripTypeSelector/TripTypeSelector';
 import PassengerMenu from '../PassengerMenu/PassengerMenu';
 import CabinClassMenu from '../CabinClassMenu/CabinClassMenu';
+import SearchFlightsButton from '../SearchFlightsButton/SearchFlightsButtons';
 
 function SearchForm() {
   return (
@@ -50,12 +50,12 @@ function SearchForm() {
               alignItems={'center'}
             >
               <IconButton>
-                <SwapHorizontalCircle fontSize={'large'}/>
+                <SwapHorizontalCircle fontSize={'large'} />
               </IconButton>
             </Grid>
 
             <Grid size={5.5}>
-            <DestinationAirportInput sx={{ width: '100%' }} />
+              <DestinationAirportInput sx={{ width: '100%' }} />
             </Grid>
           </Grid>
 
@@ -77,16 +77,19 @@ function SearchForm() {
             left: '50%',
           }}
         >
-          <Button
-            variant='contained'
-            startIcon={<SearchIcon />}
-            sx={{ borderRadius: 8, padding: '8px 16px' }}
-            // TODO: Only enable when all of the required fields are populated
-          >
-            <Typography variant='button' sx={{ fontWeight: 'medium' }}>
-              Search
-            </Typography>
-          </Button>
+          <SearchFlightsButton
+            buttonProps={{
+              sx: {
+                borderRadius: 8,
+                padding: '8px 16px'
+              }
+            }}
+            textProps={{
+              sx: {
+                fontWeight: 'medium'
+              }
+            }}
+          />
         </Box>
 
       </Grid>
