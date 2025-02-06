@@ -40,6 +40,7 @@ const CabinClassMenu = () => {
             key={cabinClass}
             onClick={(event) => {
               setSelectedCabinClass(cabinClass);
+              setAnchorEl(null);
             }}
             selected={cabinClass === selectedCabinClass}
           >
