@@ -7,7 +7,8 @@ import {
   ListItemText,
   IconButton,
   Typography,
-  Grid2 as Grid
+  Grid2 as Grid,
+  Stack
 } from '@mui/material';
 import { Add, Remove, ArrowDropDown, ArrowDropUp, Person } from '@mui/icons-material';
 import PASSENGER_TYPES from '../../constants/constants.passengerTypes'
@@ -108,7 +109,17 @@ const PassengerMenu = () => {
             </ListItem>
           ))
         }
-
+        {/* TODO : Make these functional */}
+        {/* <ListItem>
+          <Stack direction={'row'} justifyContent={'flex-end'} sx={{width: "100%"}}>
+            <Button size='small'>
+              Cancel
+            </Button>
+            <Button>
+              Done
+            </Button>
+          </Stack>
+        </ListItem> */}
       </Menu>
     </Box>
   );
