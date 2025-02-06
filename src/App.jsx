@@ -1,25 +1,16 @@
-import { Container } from '@mui/material';
-import Header from './components/Header/Header';
-import SearchForm from './components/SearchForm/SearchForm';
+import Layout from './pages/Layout/Layout';
+import HomePage from './pages/HomePage/HomePage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Container
-        maxWidth='lg'
-        sx={{
-          padding: {
-            xs: 1,
-            sm: 2,
-            md: 4,
-            lg: 5
-          }
-        }}
-      >
-        <SearchForm />
-      </Container>
-    </>
+    <Router>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
