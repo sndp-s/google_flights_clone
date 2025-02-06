@@ -40,6 +40,7 @@ const TripTypeSelector = () => {
             key={tripType}
             onClick={(event) => {
               setSelectedTripType(tripType);
+              setAnchorEl(null);
             }}
             selected={tripType === selectedTripType}
           >
