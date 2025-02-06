@@ -1,4 +1,4 @@
-import { Paper, Grid2 as Grid, Box, IconButton } from '@mui/material';
+import { Paper, Grid2 as Grid, IconButton } from '@mui/material';
 import OriginAirportInput from '../OriginAirportInput/OriginAirportInput';
 import DestinationAirportInput from '../DestinationAirportInput/DestinationAirportInput';
 import JourneyDatePicker from '../JourneyDatePicker/JourneyDatePicker';
@@ -12,7 +12,8 @@ function SearchForm() {
   return (
     <Paper
       sx={{
-        padding: 4,
+        paddingX: 4,
+        paddingY: 2,
         position: 'relative',
         borderRadius: 2
       }}
@@ -21,7 +22,7 @@ function SearchForm() {
       <Grid
         container
         direction={'column'}
-        spacing={1}
+        spacing={2}
       >
 
         {/* forms */}
@@ -69,20 +70,14 @@ function SearchForm() {
         </Grid>
 
         {/* Search button */}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 0,
-            transform: 'translate(-50%, 50%)',
-            left: '50%',
-          }}
-        >
+        <Grid alignSelf={'center'}>
           <SearchFlightsButton
             buttonProps={{
               sx: {
                 borderRadius: 8,
-                padding: '8px 16px'
-              }
+                padding: '8px 16px',
+              },
+              size: 'large'
             }}
             textProps={{
               sx: {
@@ -90,8 +85,7 @@ function SearchForm() {
               }
             }}
           />
-        </Box>
-
+        </Grid>
       </Grid>
     </Paper>
   );
