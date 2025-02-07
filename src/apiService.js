@@ -21,3 +21,47 @@ export const fetchAirports = async (query) => {
     throw 'Error fetching airports';
   }
 };
+
+// NOTE: Verify before use
+export const fetchFlightsSearch = async (
+  originSkyId,
+  destinationSkyId,
+  originEntityId,
+  destinationEntityId,
+  date,
+  returnDate,
+  cabinClass,
+  adults,
+  childrens,
+  infants,
+  sortBy='best',
+  // carriersIds,
+  currency='USD',
+  market='en-US',
+  countryCode= 'US'
+) => {  
+  try {
+    const response = await apiClient.get(ENDPOINTS.SEARCH_FLIGHTS, {
+      params: {
+        originSkyId,
+        destinationSkyId,
+        originEntityId,
+        destinationEntityId,
+        date,
+        returnDate,
+        cabinClass,
+        adults,
+        childrens,
+        infants,
+        sortBy,
+        currency,
+        market,
+        countryCode,
+        limit: 10,
+      }
+    })
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};

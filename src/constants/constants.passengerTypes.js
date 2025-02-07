@@ -4,7 +4,7 @@ export default {
     secondaryText: "12+ years",
     defaultCount: 1
   },
-  children: {
+  childrens: {
     primaryText: "Children",
     secondaryText: "2-12 years",
     defaultCount: 0
